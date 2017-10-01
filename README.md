@@ -1,14 +1,17 @@
 # CouponApp
 
 * Albong Coupon --version 0.1.0
+    * 공개버젼 Albong Coupon
     * React Navigation, Redux, AsyncStorage
     * 쿠폰 생성, Tab 전환, StackNavigation
 
 * 본 프로젝트를 실행하는 방법.
+    *   ```bash
+        git clone https://github.com/LandonPark/CouponApp.git
 
-```bash
-npm install
-```
+    *   ```bash
+        npm install
+        ```
 
 * Directory 구조
 
