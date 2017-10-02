@@ -1,9 +1,9 @@
 # CouponApp
 
-* Albong Coupon --version 0.1.1
+* Albong Coupon --version 0.1.2
     * 공개버젼 Albong Coupon
-    * React Navigation, Redux, AsyncStorage
-    * 쿠폰 생성, Tab 전환, StackNavigation, 개별쿠폰스크린 구현
+    * React Navigation, Redux, AsyncStorage, redux-persist
+    * 쿠폰 생성, Tab 전환, StackNavigation, 개별쿠폰스크린 구현, 새로고침시 데이터유지 구현
 
 * 본 프로젝트를 실행하는 방법.
     *   ```bash
