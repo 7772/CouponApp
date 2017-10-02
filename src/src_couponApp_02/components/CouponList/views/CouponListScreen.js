@@ -16,8 +16,6 @@ import Button from "./../../Button";
 import Input from "./../../Input";
 import LabeledInput from './../../LabeledInput';
 
-import Immutable from 'immutable';
-
 class CouponListScreen extends React.Component {
 
   componentWillMount() {
@@ -43,6 +41,7 @@ class CouponListScreen extends React.Component {
     this.setModalVisible(!this.state.modalVisible);
   };
 
+  // 여기서 .navigate 에 coupon 객체를 함께 보내줘야 함.
   _review = coupon => {
     this.props.reviewCoupon(coupon);
     this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
