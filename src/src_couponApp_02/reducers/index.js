@@ -16,17 +16,17 @@ import { MockCoupons } from './../data/Mocks';
 import CouponsReducer from './coupons';
 import ReviewReducer, { mkReviewState } from './reviews';
 
-// 09.22 추가
+// 09.22 추가, 새로 고침시 데이터 유지
 import { compose } from 'redux'
-import {persistStore, autoRehydrate} from 'redux-persist'
-//
-//
+import { persistStore, autoRehydrate } from 'redux-persist'
+import { AsyncStorage } from 'react-native';
+
 // Middleware
 const middleware = () => {
   return applyMiddleware(logger)
 }
 
-export default createStore(
+export const store = createStore(
   combineReducers({
 
     coupons: CouponsReducer,
@@ -39,5 +39,13 @@ export default createStore(
 
     MyPage: NavigatorMyPageReducer,
   }),
-  middleware(),
-)
+  undefined,
+  compose(
+    middleware(),
+    autoRehydrate()
+  )
+);
+// persistStore 사용. 새로고침 시 데이터를 유지해준다. 
+// https://github.com/rt2zz/redux-persist
+// 2017. 10. 02 박현도
+persistStore(store, {storage: AsyncStorage});
