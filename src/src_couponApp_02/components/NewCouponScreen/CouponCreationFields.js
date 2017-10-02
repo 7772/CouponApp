@@ -36,10 +36,7 @@ class EnterCoupon extends Component {
 
   _handlePhotoSource = source => {
     this.setState({ photoSource: source});
-    // 2. 여기서 this.setState({ photoSource: '이미지 주소' }); 를 해봐서 사진이 잘 나오는지 확인해볼 것.
   }
-
-  // 1. 여기서 photosource 안찍히니까, 로컬로 연결해서 테스트 하던지, 아니면 pick 이미지를 다양화 시키는 법 확인.
 
   _create = () => {
     // console.log('name :: ' + this.state.name);
@@ -69,7 +66,8 @@ class EnterCoupon extends Component {
         />
         <CreateCouponButton
           onPress={this._create}
-          offModal={this._offModal} />
+          offModal={this._offModal}
+        />
       </View>
     );
   }

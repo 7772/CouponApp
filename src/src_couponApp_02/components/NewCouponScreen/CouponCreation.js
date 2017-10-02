@@ -22,7 +22,10 @@ class CouponCreation extends Component {
   }
 
   render() {
-    let contents = <EnterCoupon create={this._newCoupon} offModal={this._offModal} />
+    let contents = <EnterCoupon 
+                      create={this._newCoupon} 
+                      offModal={this._offModal}
+                    />
     return contents;
   }
 }

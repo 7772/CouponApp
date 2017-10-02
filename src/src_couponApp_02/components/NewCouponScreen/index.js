@@ -15,8 +15,6 @@ class NewCoupon extends React.Component {
     // console.log('photoSource in newCoupon index :: ' + photoSource);
     let createCouponAction = addCoupon(name, number, photoSource);
     this.props.createCoupon(createCouponAction);
-    //this.props.navigation.navigate('CouponList');
-
   }
 
   _offModal = () => {
@@ -29,7 +27,9 @@ class NewCoupon extends React.Component {
         <View>
           <CouponCreation
             create={this._createCoupon}
-            offModal={this._offModal} />
+            offModal={this._offModal} 
+            navigation={this.props.navigation}
+          />
         </View>
       </View>
     );

@@ -43,8 +43,9 @@ class CouponListScreen extends React.Component {
     this.setModalVisible(!this.state.modalVisible);
   };
 
-  _review = couponID => {
-    this.props.reviewCoupon(couponID);
+  _review = coupon => {
+    this.props.reviewCoupon(coupon);
+    this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
   };
 
   render() {
@@ -78,7 +79,7 @@ class CouponListScreen extends React.Component {
                 coupon={rowData}
                 key={rowData.id}
                 review={() => {
-                  this._review(rowData.id)
+                  this._review(rowData)
                 }}
                 navigation={this.props.navigation}
               />
