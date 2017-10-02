@@ -17,23 +17,17 @@ class BeforeDownloadScreen extends React.Component {
     super(props);
   }
 
-  // _contents() {
-
-  //   return (
-  //     <ViewCard
-  //       onReview={this.onReview}
-  //       continue={this._nextReview}
-  //       quit={this._quitReviewing}
-  //       {...this.props.reviews[this.props.currentReview]}
-  //     />
-  //   );
-
-  // }
-
-  _click = () => {
+  _testFunc = () => {
     console.log(this.props.navigation.state.params.coupon);
     console.log(this.props.navigation.state.key);
     console.log('state : ' + this.state);
+  }
+
+  _downCoupon = () => {
+    console.log('다운로드 버튼을 클릭하였다. 내쿠폰함으로 이동, 그리고 개수 차감 구현!');
+    
+    this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0} })
+    // 다운완료를 알리는 alert 버튼.
   }
 
   render() {
@@ -41,10 +35,17 @@ class BeforeDownloadScreen extends React.Component {
     return(
 
       <View style={styles.container}>
-        <Button onPress={() => this._click()}>
+        <Button onPress={() => this._testFunc()}>
           <NormalText>{this.props.navigation.state.params.coupon.name}</NormalText>
           <NormalText>{this.props.navigation.state.params.coupon.number}</NormalText>
         </Button>
+
+        <Button
+          onPress={ () => this._downCoupon() }
+        >
+          <NormalText>다운받기</NormalText>
+        </Button>
+
       </View>
 
     )
