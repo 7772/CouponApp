@@ -42,6 +42,7 @@ export const store = createStore(
   undefined,
   compose(
     middleware(),
+    // autoRehydrate 가 data 를 유지시킴.
     autoRehydrate()
   )
 );
