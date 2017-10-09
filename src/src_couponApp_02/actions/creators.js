@@ -15,6 +15,15 @@ export const loadData = data => {
   return { type: LOAD_DATA, data: data };
 }
 
+// 개별 쿠폰리스트 보기.
 export const reviewCoupon = couponID => {
   return { type: REVIEW_COUPON, data: { couponID: couponID }};
+}
+
+// MyCoupon 의 action 정의
+export const MyCoupon = couponID => {
+  return {
+    type: actions.MYCOUPON,
+    id: couponID
+  }
 }
