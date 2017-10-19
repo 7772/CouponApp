@@ -11,10 +11,16 @@ import colors from "./../../../styles/colors";
 
 import Picture from './../../Picture';
 
+import { NavigationActions } from 'react-navigation'
+
 class BeforeDownloadScreen extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      coupon: this.props.navigation.state.params.coupon
+    }
   }
 
   _testFunc = () => {
@@ -25,19 +31,32 @@ class BeforeDownloadScreen extends React.Component {
 
   _downCoupon = () => {
     console.log('다운로드 버튼을 클릭하였다. 내쿠폰함으로 이동, 그리고 개수 차감 구현!');
+
+    //const coupon = this.props.navigation.state.params.coupon
+
+    const setParamsAction = NavigationActions.setParams({
+      params: { coupon: this.state.coupon },
+      type: 'JUMP_TO_TAB',
+      payload: {index:0},
+      key: 'Init-id-1507026151695-6'
+    })
     
-    this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0} })
+    // this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}, coupon:{coupon} })
+    this.props.navigation.dispatch(setParamsAction)
+
     // 다운완료를 알리는 alert 버튼.
   }
 
   render() {
 
+    const coupon = this.props.navigation.state.params.coupon
+
     return(
 
       <View style={styles.container}>
         <Button onPress={() => this._testFunc()}>
-          <NormalText>{this.props.navigation.state.params.coupon.name}</NormalText>
-          <NormalText>{this.props.navigation.state.params.coupon.number}</NormalText>
+          <NormalText>{coupon.name}</NormalText>
+          <NormalText>{coupon.number}</NormalText>
         </Button>
 
         <Button

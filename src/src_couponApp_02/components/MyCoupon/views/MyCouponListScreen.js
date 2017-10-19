@@ -1,22 +1,65 @@
 'use strict'
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, ListView } from 'react-native'
 
-import Button from "./../../Button";
-import NormalText from "./../../NormalText";
-import colors from "./../../../styles/colors";
+import Button from "./../../Button"
+import NormalText from "./../../NormalText"
+import colors from "./../../../styles/colors"
+
+import Coupon from '../../CouponList/views/Coupon'
+import { reviewCoupon } from './../../../actions/creators';
 
 class MyCouponListScreen extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  // componentWillMount() {
+  //   this.dataSource = new ListView.DataSource({
+  //       rowHasChanged: (row1, row2) => row1 !== row2
+  //   });
+  // }
+
+  // _review = coupon => {
+  //   this.props.reviewCoupon(coupon);
+  //   this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
+  // };
+
+  _checkProps = () => {
+    this.setState = {
+      coupon: this.props.navigation.state.params.coupon
+    }
+
+    console.log(this.setState.coupon);
+
+    this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: this.setState.coupon});
+  }
+
   render(){
+
+    // const coupon = this.props.navigation.state.params.coupon;
+
     return(
 
       <View style={styles.container}>
+      
+
         <NormalText>내가 받은 쿠폰 리스트 들어갈 자리~</NormalText>
         <Button 
           onPress={ () => this.props.navigation.navigate('AfterDownloadCouponScreen') 
         }>
-          <NormalText>각 쿠폰리스트를 클릭하면 하나의 쿠폰정보를 보여주기.</NormalText>
+          <NormalText>AfterDownloadCouponScreen</NormalText>
         </Button>
+
+        <Button 
+          onPress={ () => this._checkProps()
+        }>
+          <NormalText>click me</NormalText>
+        </Button>
+
+
+        
       </View>
 
     )

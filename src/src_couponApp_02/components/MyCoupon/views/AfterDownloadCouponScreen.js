@@ -7,10 +7,14 @@ import NormalText from "./../../NormalText";
 import colors from "./../../../styles/colors";
 
 class AfterDownloadCouponScreen extends React.Component {
+
   render(){
+
+    const coupon = this.props.navigation.state.params.coupon
+
     return(
       <View style={styles.container}>
-        <NormalText>내가 받은 쿠폰 하나의 세부정보를 보여줘야 함</NormalText>
+        <NormalText>{coupon.name}</NormalText>
       </View>
     )
   }
