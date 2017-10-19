@@ -28,5 +28,18 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "description": "* Albong Coupon --version 0.1.2     * 공개버젼 Albong Coupon     * React Navigation, Redux, AsyncStorage, redux-persist     * 쿠폰 생성, Tab 전환, StackNavigation, 개별쿠폰스크린 구현, 새로고침시 데이터유지 구현",
+  "main": "App.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LandonPark/CouponApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LandonPark/CouponApp/issues"
+  },
+  "homepage": "https://github.com/LandonPark/CouponApp#readme"
 }
