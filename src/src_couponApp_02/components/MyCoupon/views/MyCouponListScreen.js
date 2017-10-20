@@ -9,10 +9,16 @@ import colors from "./../../../styles/colors"
 import Coupon from '../../CouponList/views/Coupon'
 import { reviewCoupon } from './../../../actions/creators';
 
+import AfterDownloadCouponScreen from './AfterDownloadCouponScreen'
+
 class MyCouponListScreen extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      coupon: '',
+    }
   }
 
   // componentWillMount() {
@@ -26,6 +32,12 @@ class MyCouponListScreen extends React.Component {
   //   this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
   // };
 
+  handleChange = coupon => {
+    this.setState = {
+      coupon: coupon
+    }
+  }
+
   _checkProps = () => {
     this.setState = {
       coupon: this.props.navigation.state.params.coupon
@@ -33,12 +45,12 @@ class MyCouponListScreen extends React.Component {
 
     console.log(this.setState.coupon);
 
-    this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: this.setState.coupon});
+    // this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: this.setState.coupon});
   }
 
   render(){
 
-    // const coupon = this.props.navigation.state.params.coupon;
+    const coupon = this.props.navigation.state.params.coupon;
 
     return(
 
@@ -53,6 +65,7 @@ class MyCouponListScreen extends React.Component {
         </Button>
 
         <Button 
+          onChange={ () => this.handleChange(coupon) }
           onPress={ () => this._checkProps()
         }>
           <NormalText>click me</NormalText>

@@ -10,11 +10,12 @@ class AfterDownloadCouponScreen extends React.Component {
 
   render(){
 
-    const coupon = this.props.navigation.state.params.coupon
+    // const coupon = this.props.navigation.state.params.coupon
 
     return(
       <View style={styles.container}>
-        <NormalText>{coupon.name}</NormalText>
+        {/* <NormalText>{coupon.name}</NormalText> */}
+        <NormalText>hello</NormalText>
       </View>
     )
   }
