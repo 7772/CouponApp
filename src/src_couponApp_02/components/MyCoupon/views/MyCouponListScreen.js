@@ -11,13 +11,15 @@ import { reviewCoupon } from './../../../actions/creators';
 
 import AfterDownloadCouponScreen from './AfterDownloadCouponScreen'
 
+import { connect } from 'react-redux';
+
 class MyCouponListScreen extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      coupon: '',
+      couponOb: this.props.navigation.state.params,
     }
   }
 
@@ -32,25 +34,38 @@ class MyCouponListScreen extends React.Component {
   //   this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
   // };
 
-  handleChange = coupon => {
-    this.setState = {
-      coupon: coupon
-    }
-  }
+  // handleChange = () => {
+  //   this.setState = {
+  //     coupon: this.props.navigation.state.params.coupon
+  //   }
+  // }
 
-  _checkProps = () => {
-    this.setState = {
-      coupon: this.props.navigation.state.params.coupon
-    }
+  // _checkProps = () => {
+  //   this.setState = {
+  //     coupon: this.props.navigation.state.params.coupon
+  //   }
 
-    console.log(this.setState.coupon);
+  //   console.log(this.setState.coupon);
 
-    // this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: this.setState.coupon});
+  //   // this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: this.setState.coupon});
+  // }
+
+  _review = couponOb => {
+
+    const coupon = couponOb.coupon
+
+    console.log(coupon.name);
+    console.log(coupon.number);
+    console.log(coupon.id);
+    console.log(coupon.photoSource);
+
+    // this.props.reviewCoupon(coupon);
+    // this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: coupon});
   }
 
   render(){
 
-    const coupon = this.props.navigation.state.params.coupon;
+    const couponOb = this.state.couponOb
 
     return(
 
@@ -65,9 +80,8 @@ class MyCouponListScreen extends React.Component {
         </Button>
 
         <Button 
-          onChange={ () => this.handleChange(coupon) }
-          onPress={ () => this._checkProps()
-        }>
+          onPress={() => { this._review(couponOb) }}
+        >
           <NormalText>click me</NormalText>
         </Button>
 
@@ -111,4 +125,13 @@ const styles = StyleSheet.create({
   headingText: { flex: 1, fontSize: 24, alignSelf: "center" }
 });
 
-export default MyCouponListScreen;
+const mapDispatchToProps = dispatch => {
+  return {
+    reviewCoupon: couponID => {
+      dispatch(reviewCoupon(couponID));
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(MyCouponListScreen);
+

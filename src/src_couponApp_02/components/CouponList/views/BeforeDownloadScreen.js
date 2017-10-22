@@ -13,36 +13,40 @@ import Picture from './../../Picture';
 
 import { NavigationActions } from 'react-navigation'
 
+import { connect } from 'react-redux';
+
 class BeforeDownloadScreen extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      coupon: this.props.navigation.state.params.coupon
+      coupon: null
     }
   }
 
-  _testFunc = () => {
-    console.log(this.props.navigation.state.params.coupon);
-    console.log(this.props.navigation.state.key);
-    console.log('state : ' + this.state);
-  }
-
-  _downCoupon = () => {
+  _downCoupon = couponID => {
     console.log('다운로드 버튼을 클릭하였다. 내쿠폰함으로 이동, 그리고 개수 차감 구현!');
 
     //const coupon = this.props.navigation.state.params.coupon
+
+    console.log(couponID);
+
+    this.state.coupon = couponID
+
+    console.log('coupon after setState');
+    console.log(this.state.coupon);
 
     const setParamsAction = NavigationActions.setParams({
       params: { coupon: this.state.coupon },
       type: 'JUMP_TO_TAB',
       payload: {index:0},
-      key: 'Init-id-1507026151695-6'
+      key: 'Init-id-1508454292924-6'
     })
     
     // this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}, coupon:{coupon} })
     this.props.navigation.dispatch(setParamsAction)
+    // this.props.renderCoupon(setParamsAction)
 
     // 다운완료를 알리는 alert 버튼.
   }
@@ -60,7 +64,7 @@ class BeforeDownloadScreen extends React.Component {
         </Button>
 
         <Button
-          onPress={ () => this._downCoupon() }
+          onPress={ () => this._downCoupon(coupon) }
         >
           <NormalText>다운받기</NormalText>
         </Button>
@@ -103,5 +107,14 @@ const styles = StyleSheet.create({
   headingText: { flex: 1, fontSize: 24, alignSelf: "center" }
 });
 
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     renderCoupon: renderAction => {
+//       dispatch(renderAction)
+//     }
+//   }
+// }
 
 export default BeforeDownloadScreen;
+
+//export default connect(null, mapDispatchToProps)(BeforeDownloadScreen)
