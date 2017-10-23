@@ -7,7 +7,7 @@ import NormalText from "./../../NormalText"
 import colors from "./../../../styles/colors"
 
 import Coupon from '../../CouponList/views/Coupon'
-import { reviewCoupon } from './../../../actions/creators';
+// import { reviewCoupon } from './../../../actions/creators';
 
 import AfterDownloadCouponScreen from './AfterDownloadCouponScreen'
 
@@ -15,13 +15,13 @@ import { connect } from 'react-redux';
 
 class MyCouponListScreen extends React.Component {
 
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      couponOb: this.props.navigation.state.params,
-    }
-  }
+  //   this.state = {
+  //     couponOb: this.props.navigation.state.params,
+  //   }
+  // }
 
   // componentWillMount() {
   //   this.dataSource = new ListView.DataSource({
@@ -50,22 +50,21 @@ class MyCouponListScreen extends React.Component {
   //   // this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: this.setState.coupon});
   // }
 
-  _review = couponOb => {
+  // _review = coupon => {
 
-    const coupon = couponOb.coupon
+  //   console.log(this.props.navigation.setParams(coupon));
+  //   // const coupon = couponOb.coupon
 
-    console.log(coupon.name);
-    console.log(coupon.number);
-    console.log(coupon.id);
-    console.log(coupon.photoSource);
+  //   // console.log(coupon.name);
+  //   // console.log(coupon.number);
+  //   // console.log(coupon.id);
+  //   // console.log(coupon.photoSource);
 
-    // this.props.reviewCoupon(coupon);
-    // this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: coupon});
-  }
+  //   // this.props.reviewCoupon(coupon);
+  //   // this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: coupon});
+  // }
 
   render(){
-
-    const couponOb = this.state.couponOb
 
     return(
 
@@ -79,14 +78,6 @@ class MyCouponListScreen extends React.Component {
           <NormalText>AfterDownloadCouponScreen</NormalText>
         </Button>
 
-        <Button 
-          onPress={() => { this._review(couponOb) }}
-        >
-          <NormalText>click me</NormalText>
-        </Button>
-
-
-        
       </View>
 
     )

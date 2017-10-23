@@ -15,6 +15,10 @@ import { NavigationActions } from 'react-navigation'
 
 import { connect } from 'react-redux';
 
+import { addMyCoupon } from './../../../actions/creators';
+import Coupon from './Coupon';
+import { reviewCoupon } from './../../../actions/creators';
+
 class BeforeDownloadScreen extends React.Component {
 
   constructor(props) {
@@ -41,11 +45,19 @@ class BeforeDownloadScreen extends React.Component {
       params: { coupon: this.state.coupon },
       type: 'JUMP_TO_TAB',
       payload: {index:0},
-      key: 'Init-id-1508454292924-6'
+      // key: 'Init-id-1508454292924-6'
+      // routeName: "MyCouponListScreen"
     })
+
+    _review = coupon => {
+      let createMyCouponAction = addMyCoupon(coupon.name, coupon.number, coupon.photoSource)
+      this.props.createMyCoupon(createMyCouponAction)
+      this.props.reviewCoupon(coupon)
+      // this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}, coupon:{coupon} })
+    }
     
     // this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}, coupon:{coupon} })
-    this.props.navigation.dispatch(setParamsAction)
+    // this.props.navigation.dispatch(setParamsAction)
     // this.props.renderCoupon(setParamsAction)
 
     // 다운완료를 알리는 alert 버튼.
@@ -58,16 +70,13 @@ class BeforeDownloadScreen extends React.Component {
     return(
 
       <View style={styles.container}>
-        <Button onPress={() => this._testFunc()}>
-          <NormalText>{coupon.name}</NormalText>
-          <NormalText>{coupon.number}</NormalText>
-        </Button>
-
-        <Button
-          onPress={ () => this._downCoupon(coupon) }
-        >
-          <NormalText>다운받기</NormalText>
-        </Button>
+  
+        {/* 여기서 쿠폰 컴포넌트 하나를 새로 파야함. */}
+        <Coupon
+          coupon={coupon}
+          key={coupon.id}
+          navigation={this.props.navigation}
+        />
 
       </View>
 
@@ -107,14 +116,24 @@ const styles = StyleSheet.create({
   headingText: { flex: 1, fontSize: 24, alignSelf: "center" }
 });
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     renderCoupon: renderAction => {
-//       dispatch(renderAction)
-//     }
-//   }
-// }
+const mapDispatchToProps = dispatch => {
+  return {
+    createMyCoupon: MyCouponAction => {
+      dispatch(MyCouponAction)
+    },
+    reviewCoupon: couponID => {
+      dispatch(reviewCoupon(couponID));
+    }
+  }
+}
 
-export default BeforeDownloadScreen;
+const mapStateToProps = state => {
+  return {
+    coupons: state.coupons
+  };
+}
+
+// export default BeforeDownloadScreen;
+export default connect(mapStateToProps, mapDispatchToProps)(BeforeDownloadScreen);
 
 //export default connect(null, mapDispatchToProps)(BeforeDownloadScreen)
