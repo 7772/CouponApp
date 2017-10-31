@@ -6,7 +6,12 @@ import Button from "./../../Button";
 import NormalText from "./../../NormalText";
 import colors from "./../../../styles/colors";
 
+
 class AfterDownloadCouponScreen extends React.Component {
+
+  _review = function() {
+    console.log(this.props);
+  }
 
   render(){
 
@@ -15,7 +20,11 @@ class AfterDownloadCouponScreen extends React.Component {
     return(
       <View style={styles.container}>
         {/* <NormalText>{coupon.name}</NormalText> */}
-        <NormalText>hello</NormalText>
+        <Button
+          onPress={this._review}
+        >
+          <NormalText>hello</NormalText>
+        </Button>
       </View>
     )
   }

@@ -4,7 +4,7 @@ import Coupon from './../data/Coupon';
 import { writeCoupons } from './../storage/coupons';
 
 import MyCoupon from './../data/Coupon';
-import { writeMyCoupons } from './../storage/coupons';
+import { writeMyCoupons } from './../storage/myCoupons';
 
 import _ from 'lodash';
 

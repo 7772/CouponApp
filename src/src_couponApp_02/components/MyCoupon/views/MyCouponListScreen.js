@@ -1,85 +1,59 @@
 'use strict'
-import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, ListView } from 'react-native'
+import React, { Component } from "react";
+import { View, StyleSheet, Modal, TouchableHighlight, Text, ListView, TouchableOpacity } from "react-native";
+
+import { connect } from 'react-redux';
+
+import MyCoupon from './MyCoupon'
 
 import Button from "./../../Button"
 import NormalText from "./../../NormalText"
 import colors from "./../../../styles/colors"
-
-import Coupon from '../../CouponList/views/Coupon'
-// import { reviewCoupon } from './../../../actions/creators';
+import Input from "./../../Input";
+import LabeledInput from './../../LabeledInput';
 
 import AfterDownloadCouponScreen from './AfterDownloadCouponScreen'
 
-import { connect } from 'react-redux';
-
 class MyCouponListScreen extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
+  componentWillMount() {
+    this.dataSource = new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2
+    });
+  }
 
-  //   this.state = {
-  //     couponOb: this.props.navigation.state.params,
-  //   }
-  // }
-
-  // componentWillMount() {
-  //   this.dataSource = new ListView.DataSource({
-  //       rowHasChanged: (row1, row2) => row1 !== row2
-  //   });
-  // }
-
-  // _review = coupon => {
-  //   this.props.reviewCoupon(coupon);
-  //   this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
-  // };
-
-  // handleChange = () => {
-  //   this.setState = {
-  //     coupon: this.props.navigation.state.params.coupon
-  //   }
-  // }
-
-  // _checkProps = () => {
-  //   this.setState = {
-  //     coupon: this.props.navigation.state.params.coupon
-  //   }
-
-  //   console.log(this.setState.coupon);
-
-  //   // this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: this.setState.coupon});
-  // }
-
-  // _review = coupon => {
-
-  //   console.log(this.props.navigation.setParams(coupon));
-  //   // const coupon = couponOb.coupon
-
-  //   // console.log(coupon.name);
-  //   // console.log(coupon.number);
-  //   // console.log(coupon.id);
-  //   // console.log(coupon.photoSource);
-
-  //   // this.props.reviewCoupon(coupon);
-  //   // this.props.navigation.navigate("AfterDownloadCouponScreen", {coupon: coupon});
-  // }
+  // 여기서 .navigate 에 coupon 객체를 함께 보내줘야 함.
+  // 누르면 바코드가 나올 다운로드 쿠폰 스크린으로~
+  _review = coupon => {
+    console.log('landon coupon ', coupon);
+    // this.props.reviewCoupon(coupon);
+    // this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
+  };
 
   render(){
 
+    // var tmpCouponTest = this.props.coupons;
+
+    var dataSource = this.dataSource.cloneWithRows(this.props.coupons);
+
     return(
+      <View>
 
-      <View style={styles.container}>
-      
-
-        <NormalText>내가 받은 쿠폰 리스트 들어갈 자리~</NormalText>
-        <Button 
-          onPress={ () => this.props.navigation.navigate('AfterDownloadCouponScreen') 
-        }>
-          <NormalText>AfterDownloadCouponScreen</NormalText>
-        </Button>
-
+        <ListView
+          dataSource={dataSource}
+          renderRow={(rowData, sectionID, rowID) =>
+              <MyCoupon
+                coupon={rowData}
+                key={rowData.id}
+                review={() => {
+                  this._review(rowData)
+                }}
+                navigation={this.props.navigation}
+              />
+          }
+          enableEmptySections={true}
+        />
       </View>
-
     )
   }
 }
@@ -124,5 +98,10 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(MyCouponListScreen);
+const mapStateToProps = state => {
+  return {
+    coupons: state.coupons
+  };
+} 
 
+export default connect(mapStateToProps, mapDispatchToProps)(MyCouponListScreen);

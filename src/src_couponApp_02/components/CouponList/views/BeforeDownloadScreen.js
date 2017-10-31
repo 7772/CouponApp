@@ -16,7 +16,7 @@ import { NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux';
 
 import { addMyCoupon } from './../../../actions/creators';
-import Coupon from './Coupon';
+import MyCoupon from '../../MyCoupon/views/MyCoupon';
 import { reviewCoupon } from './../../../actions/creators';
 
 class BeforeDownloadScreen extends React.Component {
@@ -29,39 +29,31 @@ class BeforeDownloadScreen extends React.Component {
     }
   }
 
-  _downCoupon = couponID => {
-    console.log('다운로드 버튼을 클릭하였다. 내쿠폰함으로 이동, 그리고 개수 차감 구현!');
+  // _review = coupon => {
+  //   let createMyCouponAction = addMyCoupon(coupon.name, coupon.number, coupon.photoSource)
+  //   this.props.createMyCoupon(createMyCouponAction)
+  //   // this.props.reviewCoupon(coupon)
+  //   // this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}, coupon:{coupon} })
+  // }
+  
+  // this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}, coupon:{coupon} })
+  // this.props.navigation.dispatch(setParamsAction)
+  // this.props.renderCoupon(setParamsAction)
 
-    //const coupon = this.props.navigation.state.params.coupon
+  // 다운완료를 알리는 alert 버튼.
 
-    console.log(couponID);
 
-    this.state.coupon = couponID
+  // 여기서 .navigate 에 coupon 객체를 함께 보내줘야 함.
+  _review = coupon => {
+    console.log(coupon);
 
-    console.log('coupon after setState');
-    console.log(this.state.coupon);
+    let createMyCouponAction = addMyCoupon(coupon.name, coupon.number, coupon.photoSource)
+    console.log('landon, MyCoupon ', createMyCouponAction);
+    this.props.createMyCoupon(createMyCouponAction);
 
-    const setParamsAction = NavigationActions.setParams({
-      params: { coupon: this.state.coupon },
-      type: 'JUMP_TO_TAB',
-      payload: {index:0},
-      // key: 'Init-id-1508454292924-6'
-      // routeName: "MyCouponListScreen"
-    })
-
-    _review = coupon => {
-      let createMyCouponAction = addMyCoupon(coupon.name, coupon.number, coupon.photoSource)
-      this.props.createMyCoupon(createMyCouponAction)
-      // this.props.reviewCoupon(coupon)
-      // this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}, coupon:{coupon} })
-    }
-    
-    // this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}, coupon:{coupon} })
-    // this.props.navigation.dispatch(setParamsAction)
-    // this.props.renderCoupon(setParamsAction)
-
-    // 다운완료를 알리는 alert 버튼.
-  }
+    // this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
+    this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}})
+  };
 
   render() {
 
@@ -72,10 +64,13 @@ class BeforeDownloadScreen extends React.Component {
       <View style={styles.container}>
   
         {/* 여기서 쿠폰 컴포넌트 하나를 새로 파야함. */}
-        <Coupon
+        <MyCoupon
           coupon={coupon}
           key={coupon.id}
-          navigation={this.props.navigation}
+          dispatch={this.props.navigation.dispatch}
+          review={() => {
+                  this._review(coupon)
+          }}
         />
 
       </View>
