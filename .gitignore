@@ -1,0 +1,9 @@
+# Dependency directories
+node_modules
+
+# ios/android directories
+ios
+android
+
+# DS_Store
+.DS_Store
