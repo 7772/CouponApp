@@ -4,6 +4,7 @@
     * 공개버젼 Albong Coupon
     * React Navigation, Redux, AsyncStorage, redux-persist
     * 쿠폰 생성, Tab 전환, StackNavigation, 개별쿠폰스크린 구현, 새로고침시 데이터유지 구현, MyCoupon 객체 추가 완료
+    * 본 repo 에 Issue 를 클릭하면, 앞으로의 개발요구사항을 확인할 수 있습니다.
 
 * 다음 version 에서 요구되는 개발 사항
     * Coupon, MyCoupon 객체 구분
