@@ -44,4 +44,4 @@ class MyCoupon {
   }
 }
 
-export { Coupon, MyCoupon}
+export { Coupon, MyCoupon }

@@ -52,7 +52,7 @@ class BeforeDownloadScreen extends React.Component {
     _review = coupon => {
       let createMyCouponAction = addMyCoupon(coupon.name, coupon.number, coupon.photoSource)
       this.props.createMyCoupon(createMyCouponAction)
-      this.props.reviewCoupon(coupon)
+      // this.props.reviewCoupon(coupon)
       // this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}, coupon:{coupon} })
     }
     
@@ -121,9 +121,9 @@ const mapDispatchToProps = dispatch => {
     createMyCoupon: MyCouponAction => {
       dispatch(MyCouponAction)
     },
-    reviewCoupon: couponID => {
-      dispatch(reviewCoupon(couponID));
-    }
+    // reviewCoupon: couponID => {
+    //   dispatch(reviewCoupon(couponID));
+    // }
   }
 }
 

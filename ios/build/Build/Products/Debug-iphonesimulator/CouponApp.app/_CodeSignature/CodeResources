@@ -6,7 +6,7 @@
 	<dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		z6MDYq1mLzlYgHdPM4vw0wnc7nA=
+		DDdbKPW/cG6RdWNrELdZ6OGpGHU=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -95,19 +95,19 @@
 		</data>
 		<key>PlugIns/CouponAppTests.xctest.dSYM/Contents/Resources/DWARF/CouponAppTests</key>
 		<data>
-		of+JiFdxuoJPePkTDmA3o7SrOLA=
+		gbI7K4Pc5MA9lB6h2Dsbh9OF5DQ=
 		</data>
 		<key>PlugIns/CouponAppTests.xctest/CouponAppTests</key>
 		<data>
-		co69rnGrSSeZ3fE/oEsmBGpA91U=
+		wYce3RI85hQTzcgYzTJfhT26Ii0=
 		</data>
 		<key>PlugIns/CouponAppTests.xctest/Info.plist</key>
 		<data>
-		+io9PhShGDWrkZ+ux7NSIXle6Fs=
+		EgjLQ5bsZtzZI1IdZ+GGfe8Lucs=
 		</data>
 		<key>PlugIns/CouponAppTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
-		4RumKU4+LnqGLJKxORsIzO48s5U=
+		D1fLm9mOZfr1+xSZ3a4fTJFXB5I=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -124,11 +124,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			z6MDYq1mLzlYgHdPM4vw0wnc7nA=
+			DDdbKPW/cG6RdWNrELdZ6OGpGHU=
 			</data>
 			<key>hash2</key>
 			<data>
-			8JeqFALTPjhoaYP0IoyG6Jt76cVGEVnJ2SXARdyy53k=
+			9kWCceANOgHtULHPj876x3FXg0d6LOJ60VZSL7T845k=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -335,44 +335,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			of+JiFdxuoJPePkTDmA3o7SrOLA=
+			gbI7K4Pc5MA9lB6h2Dsbh9OF5DQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			1JbnKAkscIVUOimjgXlOa5NP4HV1ab2JFjhTNTmydZs=
+			bmpNtdzfdfc1efyeJa/KxMyICR4LJ2YtxVK1PO5GDJA=
 			</data>
 		</dict>
 		<key>PlugIns/CouponAppTests.xctest/CouponAppTests</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			co69rnGrSSeZ3fE/oEsmBGpA91U=
+			wYce3RI85hQTzcgYzTJfhT26Ii0=
 			</data>
 			<key>hash2</key>
 			<data>
-			5BlbJoAh4JWG48LaAX9eVij+x1dXuP8KrTeEl4cEHew=
+			3s9yMsBY7NGLxOtSnLjeqPe2e68LFbv2WPCdBWGE8Hg=
 			</data>
 		</dict>
 		<key>PlugIns/CouponAppTests.xctest/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+io9PhShGDWrkZ+ux7NSIXle6Fs=
+			EgjLQ5bsZtzZI1IdZ+GGfe8Lucs=
 			</data>
 			<key>hash2</key>
 			<data>
-			qzU+C8d+nsoMDHwBxw8UKdjqBUSc7H9UU+DLwFu6YcU=
+			noKk7uE4ptd+Y3LvX0Piq/LfBJALJ1SsQHXMZ/21dzg=
 			</data>
 		</dict>
 		<key>PlugIns/CouponAppTests.xctest/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4RumKU4+LnqGLJKxORsIzO48s5U=
+			D1fLm9mOZfr1+xSZ3a4fTJFXB5I=
 			</data>
 			<key>hash2</key>
 			<data>
-			jUHmxJa4qnoNRLu5sk+ay0qQjtG97fN9mD6aRlQcdkY=
+			8xHFxqHw9qntf08IWJ1JRFUwTPKLyENDtAXJgBi26/c=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>
