@@ -2,8 +2,7 @@
 /node_modules
 
 # ios/android directories
-/ios
-/android
+/ios/build/Build
 
 # DS_Store
 .DS_Store
