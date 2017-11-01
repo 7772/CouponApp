@@ -24,8 +24,9 @@ class MyCouponListScreen extends React.Component {
 
   // 여기서 .navigate 에 coupon 객체를 함께 보내줘야 함.
   // 누르면 바코드가 나올 다운로드 쿠폰 스크린으로~
-  _review = coupon => {
-    console.log('landon coupon ', coupon);
+  _review = myCoupon => {
+    console.log('landon myCoupon ', myCoupon);
+    console.log('landon MyCouponListScreen props check ', this.props);
     // this.props.reviewCoupon(coupon);
     // this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
   };
@@ -34,7 +35,7 @@ class MyCouponListScreen extends React.Component {
 
     // var tmpCouponTest = this.props.coupons;
 
-    var dataSource = this.dataSource.cloneWithRows(this.props.coupons);
+    var dataSource = this.dataSource.cloneWithRows(this.props.myCoupons);
 
     return(
       <View>
@@ -43,7 +44,7 @@ class MyCouponListScreen extends React.Component {
           dataSource={dataSource}
           renderRow={(rowData, sectionID, rowID) =>
               <MyCoupon
-                coupon={rowData}
+                myCoupon={rowData}
                 key={rowData.id}
                 review={() => {
                   this._review(rowData)
@@ -100,7 +101,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    coupons: state.coupons
+    myCoupons: state.myCoupons
   };
 } 
 

@@ -14,6 +14,7 @@ import { NavigatorMyPageReducer } from './../components/MyPage/navigationConfigu
 import { MockCoupons } from './../data/Mocks';
 
 import CouponsReducer from './coupons';
+import MyCouponReducer from './myCoupons';
 import ReviewReducer, { mkReviewState } from './reviews';
 
 // 09.22 추가, 새로 고침시 데이터 유지
@@ -30,6 +31,8 @@ export const store = createStore(
   combineReducers({
 
     coupons: CouponsReducer,
+
+    myCoupons: MyCouponReducer,
 
     tabBar: tabBarReducer,
 

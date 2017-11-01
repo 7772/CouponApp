@@ -16,7 +16,7 @@ import { NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux';
 
 import { addMyCoupon } from './../../../actions/creators';
-import MyCoupon from '../../MyCoupon/views/MyCoupon';
+import Coupon from './Coupon';
 import { reviewCoupon } from './../../../actions/creators';
 
 class BeforeDownloadScreen extends React.Component {
@@ -64,7 +64,7 @@ class BeforeDownloadScreen extends React.Component {
       <View style={styles.container}>
   
         {/* 여기서 쿠폰 컴포넌트 하나를 새로 파야함. */}
-        <MyCoupon
+        <Coupon
           coupon={coupon}
           key={coupon.id}
           dispatch={this.props.navigation.dispatch}

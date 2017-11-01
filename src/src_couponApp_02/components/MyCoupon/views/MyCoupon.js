@@ -13,6 +13,7 @@ class MyCoupon extends Component {
   static displayName = 'Coupon';
 
   _review = () => {
+    console.log('landon, check MyCoupon Object ', this.props.myCoupon);
     this.props.review();
   }
 
@@ -23,21 +24,20 @@ class MyCoupon extends Component {
         <View>
           <View style={styles.pictureBox} >
             <Picture
-              source={this.props.coupon.photoSource} />
-          </View>
+              source={this.props.myCoupon.photoSource} />
         </View>
+      </View>
 
-        <View style={styles.couponButton}>
-          <Button
-            onPress={this._review}
-            >
-            <NormalText>
-              {this.props.coupon.name}{'    '}
-              {this.props.coupon.number}
-            </NormalText>
-          </Button>
-        </View>
-
+      <View style={styles.couponButton}>
+        <Button
+          onPress={this._review}
+          >
+          <NormalText>
+            {this.props.myCoupon.name}{'    '}
+            {this.props.myCoupon.number}
+          </NormalText>
+        </Button>
+      </View>
       </View>
     );
   }
