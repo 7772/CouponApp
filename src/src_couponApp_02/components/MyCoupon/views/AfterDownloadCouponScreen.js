@@ -8,7 +8,7 @@ import colors from "./../../../styles/colors";
 
 import { connect } from 'react-redux';
 
-import Picture from './../../Picture';
+import WidePicture from './../../WidePicture';
 class AfterDownloadCouponScreen extends React.Component {
 
   constructor(props) {
@@ -35,8 +35,8 @@ class AfterDownloadCouponScreen extends React.Component {
     const myCoupon = this.props.navigation.state.params.myCoupon
 
     return(
-      <View style={styles.container}>
-        <Picture
+      <View style={styles.couponListBox}>
+        <WidePicture
            source={this.state.photoSource}
            onEntry={this.props.onEntry} 
         />

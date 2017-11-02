@@ -9,7 +9,7 @@ import Button from "./../../Button";
 import NormalText from "./../../NormalText";
 import colors from "./../../../styles/colors";
 
-import Picture from './../../Picture';
+import WidePicture from './../../WidePicture';
 
 import { NavigationActions } from 'react-navigation'
 
@@ -59,22 +59,20 @@ class BeforeDownloadScreen extends React.Component {
 
     const coupon = this.props.navigation.state.params.coupon
 
-    return(
+    return (
 
-      <View style={styles.container}>
-  
-        {/* 여기서 쿠폰 컴포넌트 하나를 새로 파야함. */}
-        <Coupon
-          coupon={coupon}
-          key={coupon.id}
-          dispatch={this.props.navigation.dispatch}
-          review={() => {
-                  this._review(coupon)
-          }}
+      <View style={styles.couponListBox}>
+        <WidePicture
+          source={coupon.photoSource}
+          onEntry={this.props.onEntry} 
         />
-
+        <Button
+          onPress={this._review(coupon)}
+        >
+          <NormalText>{coupon.name}</NormalText>
+          <NormalText>{coupon.number}</NormalText>
+        </Button>
       </View>
-
     )
   }
 }
@@ -132,3 +130,4 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, mapDispatchToProps)(BeforeDownloadScreen);
 
 //export default connect(null, mapDispatchToProps)(BeforeDownloadScreen)
+
