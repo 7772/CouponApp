@@ -6,24 +6,45 @@ import Button from "./../../Button";
 import NormalText from "./../../NormalText";
 import colors from "./../../../styles/colors";
 
+import { connect } from 'react-redux';
 
+import Picture from './../../Picture';
 class AfterDownloadCouponScreen extends React.Component {
 
-  _review = function() {
-    console.log(this.props);
+  constructor(props) {
+    super(props);
+    this.state = {
+      photoSource : this.props.navigation.state.params.myCoupon.photoSource
+    };
   }
 
-  render(){
+  _review = myCoupon => {
+    console.log('landon, photosource ', this.state.photoSource);
+    console.log('landon, myCoupon ', myCoupon);
+  };
 
-    // const coupon = this.props.navigation.state.params.coupon
+  /**
+   * Things To do.
+   * 1. AfterDownloadCoupon, BeforeDownloadCoupon 스크린에 들어갈 picture 컴포넌트 제작 (보다 넓은 view 로 보이도록)
+   * 2. BeforeDownloadCoupon / 쿠폰다운로드 버튼생성
+   * 3. 권한.. --> 사업자 로그인 관련 이슈 확실히 해결
+   */
+
+  render() {
+
+    const myCoupon = this.props.navigation.state.params.myCoupon
 
     return(
       <View style={styles.container}>
-        {/* <NormalText>{coupon.name}</NormalText> */}
+        <Picture
+           source={this.state.photoSource}
+           onEntry={this.props.onEntry} 
+        />
         <Button
-          onPress={this._review}
+          onPress={this._review(myCoupon)}
         >
-          <NormalText>hello</NormalText>
+          <NormalText>{myCoupon.name}</NormalText>
+          <NormalText>{myCoupon.number}</NormalText>
         </Button>
       </View>
     )
@@ -62,4 +83,11 @@ const styles = StyleSheet.create({
   headingText: { flex: 1, fontSize: 24, alignSelf: "center" }
 });
 
-export default AfterDownloadCouponScreen;
+const mapStateToProps = state => {
+  return {
+    myCoupons: state.myCoupons
+  };
+}
+
+// export default BeforeDownloadScreen;
+export default connect(mapStateToProps, null)(AfterDownloadCouponScreen);

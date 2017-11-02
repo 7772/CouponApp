@@ -4,15 +4,15 @@ import { View, StyleSheet, Modal, TouchableHighlight, Text, ListView, TouchableO
 
 import { connect } from 'react-redux';
 
-import MyCoupon from './MyCoupon'
+import MyCoupon from './MyCoupon';
 
-import Button from "./../../Button"
-import NormalText from "./../../NormalText"
-import colors from "./../../../styles/colors"
+import Button from "./../../Button";
+import NormalText from "./../../NormalText";
+import colors from "./../../../styles/colors";
 import Input from "./../../Input";
 import LabeledInput from './../../LabeledInput';
 
-import AfterDownloadCouponScreen from './AfterDownloadCouponScreen'
+import AfterDownloadCouponScreen from './AfterDownloadCouponScreen';
 
 class MyCouponListScreen extends React.Component {
 
@@ -25,10 +25,8 @@ class MyCouponListScreen extends React.Component {
   // 여기서 .navigate 에 coupon 객체를 함께 보내줘야 함.
   // 누르면 바코드가 나올 다운로드 쿠폰 스크린으로~
   _review = myCoupon => {
-    console.log('landon myCoupon ', myCoupon);
-    console.log('landon MyCouponListScreen props check ', this.props);
     // this.props.reviewCoupon(coupon);
-    // this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
+    this.props.navigation.navigate("AfterDownloadCouponScreen", {myCoupon: myCoupon});
   };
 
   render(){
