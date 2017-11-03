@@ -25,7 +25,7 @@ class BeforeDownloadScreen extends React.Component {
     super(props);
 
     this.state = {
-      coupon: null
+      coupon: this.props.navigation.state.params.coupon
     }
   }
 
@@ -44,34 +44,38 @@ class BeforeDownloadScreen extends React.Component {
 
 
   // 여기서 .navigate 에 coupon 객체를 함께 보내줘야 함.
-  _review = coupon => {
-    console.log(coupon);
-
+  _review = () => {
+    const coupon = this.state.coupon;
     let createMyCouponAction = addMyCoupon(coupon.name, coupon.number, coupon.photoSource)
-    console.log('landon, MyCoupon ', createMyCouponAction);
     this.props.createMyCoupon(createMyCouponAction);
 
-    // this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
-    this.props.navigation.dispatch({ type:'JUMP_TO_TAB', payload:{index:0}})
+    // // this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
+    this.props.navigation.dispatch({type:'JUMP_TO_TAB', payload:{index:0}});
+    // let moveObject = {
+    //   type: 'JUMP_TO_TAB',
+    //   payload: {index:0}
+    // };
+    // this.props.moveTab(moveObject);
+    // console.log('landon, here coupon ', this.state.coupon);
   };
 
-  render() {
+  render() {  
 
-    const coupon = this.props.navigation.state.params.coupon
+    // const coupon = this.props.navigation.state.params.coupon
 
     return (
 
       <View style={styles.couponListBox}>
         <WidePicture
-          source={coupon.photoSource}
+          source={this.state.coupon.photoSource}
           onEntry={this.props.onEntry} 
         />
-        <Button
-          onPress={this._review(coupon)}
+        <TouchableOpacity
+          onPress={this._review}
         >
-          <NormalText>{coupon.name}</NormalText>
-          <NormalText>{coupon.number}</NormalText>
-        </Button>
+          <NormalText>{this.state.coupon.name}</NormalText>
+          <NormalText>{this.state.coupon.number}</NormalText>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -120,14 +124,14 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    coupons: state.coupons
-  };
-}
+// const mapStateToProps = state => {
+//   return {
+//     coupons: state.coupons
+//   };
+// }
 
 // export default BeforeDownloadScreen;
-export default connect(mapStateToProps, mapDispatchToProps)(BeforeDownloadScreen);
+export default connect(null, mapDispatchToProps)(BeforeDownloadScreen);
 
 //export default connect(null, mapDispatchToProps)(BeforeDownloadScreen)
 

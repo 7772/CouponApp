@@ -89,13 +89,13 @@ const styles = StyleSheet.create({
   headingText: { flex: 1, fontSize: 24, alignSelf: "center" }
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    reviewCoupon: couponID => {
-      dispatch(reviewCoupon(couponID));
-    }
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     reviewCoupon: couponID => {
+//       dispatch(reviewCoupon(couponID));
+//     }
+//   }
+// }
 
 const mapStateToProps = state => {
   return {
@@ -103,4 +103,4 @@ const mapStateToProps = state => {
   };
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyCouponListScreen);
+export default connect(mapStateToProps, null)(MyCouponListScreen);

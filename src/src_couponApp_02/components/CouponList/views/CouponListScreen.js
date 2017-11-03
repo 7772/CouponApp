@@ -43,7 +43,7 @@ class CouponListScreen extends React.Component {
 
   // 여기서 .navigate 에 coupon 객체를 함께 보내줘야 함.
   _review = coupon => {
-    this.props.reviewCoupon(coupon);
+    // this.props.reviewCoupon(coupon);
     this.props.navigation.navigate("BeforeDownloadScreen", {coupon: coupon});
   };
 
@@ -122,13 +122,13 @@ const styles = StyleSheet.create({
   headingText: { flex: 1, fontSize: 24, alignSelf: "center" }
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    reviewCoupon: couponID => {
-      dispatch(reviewCoupon(couponID));
-    }
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     reviewCoupon: couponID => {
+//       dispatch(reviewCoupon(couponID));
+//     }
+//   }
+// }
 
 const mapStateToProps = state => {
   return {
@@ -136,4 +136,4 @@ const mapStateToProps = state => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CouponListScreen);
+export default connect(mapStateToProps, null)(CouponListScreen);
