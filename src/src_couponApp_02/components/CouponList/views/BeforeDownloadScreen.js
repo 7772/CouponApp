@@ -70,12 +70,16 @@ class BeforeDownloadScreen extends React.Component {
           source={this.state.coupon.photoSource}
           onEntry={this.props.onEntry} 
         />
-        <Button
-          onPress={this._review}
-        >
+        <View style={styles.wideButton}>
           <NormalText>{this.state.coupon.name}</NormalText>
           <NormalText>{this.state.coupon.number}</NormalText>
-        </Button>
+        </View>
+        <TouchableOpacity 
+          style={styles.circle}
+          onPress={this._review}
+        >
+          <NormalText>다운받기</NormalText>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -93,7 +97,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FFFFFF",
     paddingTop: 24
   },
   list: { flex: 1, flexDirection: "row" },
@@ -109,6 +112,22 @@ const styles = StyleSheet.create({
     padding: 8,
     backgroundColor: "#EEEEEE",
     alignItems: "center"
+  },
+  circle: {
+    width: 100,
+    height: 100,
+    borderRadius: 100/2,
+    backgroundColor: '#FFBB00',
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center"
+  },
+  wideButton: {
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    margin: 10,
+    backgroundColor: colors.pink
   },
   headingText: { flex: 1, fontSize: 24, alignSelf: "center" }
 });
