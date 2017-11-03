@@ -70,12 +70,12 @@ class BeforeDownloadScreen extends React.Component {
           source={this.state.coupon.photoSource}
           onEntry={this.props.onEntry} 
         />
-        <TouchableOpacity
+        <Button
           onPress={this._review}
         >
           <NormalText>{this.state.coupon.name}</NormalText>
           <NormalText>{this.state.coupon.number}</NormalText>
-        </TouchableOpacity>
+        </Button>
       </View>
     )
   }
