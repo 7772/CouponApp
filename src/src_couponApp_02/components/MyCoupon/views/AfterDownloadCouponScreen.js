@@ -46,6 +46,13 @@ class AfterDownloadCouponScreen extends React.Component {
           <NormalText>{myCoupon.name}</NormalText>
           <NormalText>{myCoupon.number}</NormalText>
         </Button>
+
+        <TouchableOpacity 
+          style={styles.circle}
+          onPress={this._review}>
+          <NormalText>쿠폰 사용</NormalText>
+        </TouchableOpacity>
+
       </View>
     )
   }
@@ -74,6 +81,15 @@ const styles = StyleSheet.create({
     padding: 42,
     borderWidth: 1,
     borderColor: "#DDDDDD"
+  },
+  circle: {
+    width: 100,
+    height: 100,
+    borderRadius: 100/2,
+    backgroundColor: '#FFBB00',
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center"
   },
   sectionDivider: {
     padding: 8,
