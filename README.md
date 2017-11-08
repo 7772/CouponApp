@@ -13,7 +13,7 @@
 
 * 본 프로젝트를 실행하는 방법.
     *   ```bash
-        git clone https://github.com/LandonPark/CouponApp.git
+        git clone https://github.com/7772/CouponApp.git
 
     *   ```bash
         npm install
